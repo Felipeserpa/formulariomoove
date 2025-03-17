@@ -162,7 +162,7 @@ const TransportForm = () => {
               diálise, lazer e demais necessidades previamente acordadas.
               <br />
               <br />
-              2. Requisitos para Utilização do Serviço
+              2. Requisitos para Utilização do Serviço <br />
               <br /> 2.1. O serviço deve ser previamente agendado e está sujeito
               à disponibilidade de veículos e motoristas no momento da
               solicitação.
@@ -190,7 +190,7 @@ const TransportForm = () => {
               3.4. O acompanhante do idoso é responsável por auxiliá-lo durante
               todo o trajeto e por eventuais decisões médicas em caso de
               necessidade. <br /> <br />
-              4.4. Atendimento em Caso de Emergência
+              4.4. Atendimento em Caso de Emergência <br />
               <br /> 4.1. Se houver uma intercorrência médica durante o trajeto,
               a equipe da Moove + adotará as seguintes medidas: a) O motorista
               interromperá o percurso e acionará imediatamente os serviços de
@@ -202,7 +202,38 @@ const TransportForm = () => {
               cadastrado sobre a situação. <br />
               4.2. A Moove + não presta serviços de assistência médica ou
               primeiros socorros, limitando-se a encaminhar o idoso ao local
-              adequado para atendimento.
+              adequado para atendimento. <br /> <br />
+              {/* Continue com o restante da política */}
+              5. Responsabilidades da Empresa <br /> <br />
+              5.1. A Moove + compromete-se a fornecer um transporte seguro, com
+              veículos adaptados e equipe treinada para um atendimento
+              respeitoso e humanizado. <br /> 5.2. O motorista prestará auxílio
+              no embarque e desembarque dentro dos limites de segurança e do
+              treinamento recebido, não sendo responsável por cuidados médicos
+              ou assistência pessoal ao passageiro. <br /> 5.3. A empresa não
+              realiza manuseio de medicamentos, administração de remédios ou
+              qualquer tipo de intervenção médica. <br /> <br />
+              {/* Continue com o restante da política */}
+              6. Limitação de Responsabilidade <br /> <br />
+              6.1A empresa não se responsabiliza por complicações de saúde,
+              quedas, mal-estar ou qualquer outra intercorrência médica ocorrida
+              durante o transporte, reforçando a importância de um acompanhante
+              quando necessário. <br />
+              6.2. A Moove + não substitui serviços de emergência médica e não
+              pode ser responsabilizada por diagnósticos, tratamentos ou
+              desdobramentos médicos após a chegada do idoso ao hospital. <br />
+              6.3. O responsável pelo idoso deve garantir que todas as
+              informações de saúde fornecidas no momento do cadastro estejam
+              corretas e atualizadas, para que a empresa possa agir da melhor
+              forma em casos de necessidade. <br /> <br />
+              {/* Continue com o restante da política */}
+              7.Aceite dos Termos Ao utilizar o serviço da Moove +: <br />{" "}
+              <br />O cliente e/ou seu representante legal declara que: Está
+              ciente das condições do serviço e das limitações de
+              responsabilidade da empresa; Concorda que, em caso de emergência,
+              a Moove + poderá encaminhar o idoso ao hospital mais próximo ou ao
+              indicado pelo responsável; Isenta a empresa de qualquer
+              responsabilidade além das aqui descritas.
               {/* Continue com o restante da política */}
             </p>
           </div>
