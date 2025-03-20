@@ -1,6 +1,15 @@
 import React from "react";
-
+import { useState } from "react";
 const TransportForm = () => {
+  const [nome, setNome] = useState("");
+
+  //criando a funçao
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    console.log(nome);
+  };
+
   return (
     <div className="bg-black-100 p-6">
       <div className="max-w-2xl mx-auto bg-black p-8 rounded-lg shadow-md">
@@ -16,7 +25,7 @@ const TransportForm = () => {
         <h2 className="text-xl font-semibold mb-4">
           1. Informações do Passageiro
         </h2>
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={handleFormSubmit}>
           <div>
             <label className="block text-sm font-medium mb-1">
               Nome completo do idoso:
@@ -25,6 +34,8 @@ const TransportForm = () => {
               type="text"
               className="w-full p-2 border border-gray-300 rounded-md"
               required
+              value={nome}
+              onChange={(e) => setNome(e.target.value)}
             />
           </div>
           <div>
