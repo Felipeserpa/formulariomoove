@@ -242,7 +242,7 @@ const TransportForm = () => {
               <input type="checkbox" className="mr-2" required />
               <span className="text-sm">
                 Li e concordo com os termos e condições de uso do serviço de
-                transporte para idosos.
+                transporte para idosos..
               </span>
             </label>
           </div>
