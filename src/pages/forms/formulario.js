@@ -1,13 +1,19 @@
-import React from "react";
+import { set } from "mongoose";
+import React, { use } from "react";
 import { useState } from "react";
+
 const TransportForm = () => {
   const [nome, setNome] = useState("");
+  const [data, setData] = useState("");
+  const [resNome, setRespNome] = useState("");
+  const [contato, setContato] = useState("");
+  const [email, setEmail] = useState("");
 
   //criando a funçao
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log(nome);
+    console.log(nome, data);
   };
 
   return (
@@ -46,6 +52,8 @@ const TransportForm = () => {
               type="date"
               className="w-full p-2 border border-gray-300 rounded-md"
               required
+              value={data}
+              onChange={(e) => setData(e.target.value)}
             />
           </div>
           <div>
@@ -55,6 +63,8 @@ const TransportForm = () => {
             <input
               type="text"
               className="w-full p-2 border border-gray-300 rounded-md"
+              value={resNome}
+              onChange={(e) => setRespNome(e.target.value)}
             />
           </div>
           <div>
@@ -65,6 +75,8 @@ const TransportForm = () => {
               type="tel"
               className="w-full p-2 border border-gray-300 rounded-md"
               required
+              value={contato}
+              onChange={(e) => setContato(e.target.value)}
             />
           </div>
           <div>
@@ -74,6 +86,8 @@ const TransportForm = () => {
             <input
               type="email"
               className="w-full p-2 border border-gray-300 rounded-md"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
