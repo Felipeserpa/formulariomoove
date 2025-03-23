@@ -8,12 +8,21 @@ const TransportForm = () => {
   const [resNome, setRespNome] = useState("");
   const [contato, setContato] = useState("");
   const [email, setEmail] = useState("");
+  //criaçao parte 2 formualrio
 
+  const [datatransp, setDataTransp] = useState("");
+  const [horario, setHorario] = useState("");
+  const [endereco, setEndereco] = useState("");
+  const [enderecodistino, setEnderecoDistino] = useState("");
+  const [retornoSelecinado, setRetornoSelecionado] = useState(null);
+  const [horarioRetorn, setHorarioRetorn] = useState("");
+  const [text, setText] = useState("");
+  const [check, setCheck] = useState("");
   //criando a funçao
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log(nome, data);
+    console.log(nome, data, retornoSelecinado);
   };
 
   return (
@@ -91,6 +100,9 @@ const TransportForm = () => {
             />
           </div>
 
+          {/* segunda para pra implementaçao do campos e sua viariaveis}
+
+
           {/* Seção 2: Informações do Transporte */}
           <h2 className="text-xl font-semibold mt-8 mb-4">
             2. Informações do Transporte
@@ -141,10 +153,24 @@ const TransportForm = () => {
             </label>
             <div className="flex space-x-4">
               <label>
-                <input type="radio" name="retorno" value="sim" /> Sim
+                <input
+                  type="radio"
+                  name="retorno"
+                  value="sim"
+                  checked={retornoSelecinado === "sim"}
+                  onChange={(e) => setRetornoSelecionado(e.target.value)}
+                />{" "}
+                Sim
               </label>
               <label>
-                <input type="radio" name="retorno" value="nao" /> Não
+                <input
+                  type="radio"
+                  name="retorno"
+                  value="nao"
+                  checked={retornoSelecinado === "nao"}
+                  onChange={(e) => setRetornoSelecionado(e.target.value)}
+                />{" "}
+                Não
               </label>
             </div>
           </div>
