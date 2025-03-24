@@ -8,21 +8,36 @@ const TransportForm = () => {
   const [resNome, setRespNome] = useState("");
   const [contato, setContato] = useState("");
   const [email, setEmail] = useState("");
-  //criaçao parte 2 formualrio
 
+  //criaçao parte 2 formualrio
   const [datatransp, setDataTransp] = useState("");
   const [horario, setHorario] = useState("");
   const [endereco, setEndereco] = useState("");
-  const [enderecodistino, setEnderecoDistino] = useState("");
+  const [enderecoDistino, setEnderecoDistino] = useState("");
   const [retornoSelecinado, setRetornoSelecionado] = useState(null);
   const [horarioRetorn, setHorarioRetorn] = useState("");
   const [text, setText] = useState("");
   const [check, setCheck] = useState("");
-  //criando a funçao
 
+  //criando a funçao
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log(nome, data, retornoSelecinado);
+    console.log(
+      nome,
+      data,
+      retornoSelecinado,
+      resNome,
+      contato,
+      email,
+      datatransp,
+      horario,
+      endereco,
+      enderecoDistino,
+      retornoSelecinado,
+      horarioRetorn,
+      text,
+      check
+    );
   };
 
   return (
@@ -115,6 +130,8 @@ const TransportForm = () => {
               type="date"
               className="w-full p-2 border border-gray-300 rounded-md"
               required
+              value={datatransp}
+              onChange={(e) => setDataTransp(e.target.value)}
             />
           </div>
           <div>
@@ -125,6 +142,8 @@ const TransportForm = () => {
               type="time"
               className="w-full p-2 border border-gray-300 rounded-md"
               required
+              value={horario}
+              onChange={(e) => setHorario(e.target.value)}
             />
           </div>
           <div>
@@ -135,6 +154,8 @@ const TransportForm = () => {
               type="text"
               className="w-full p-2 border border-gray-300 rounded-md"
               required
+              value={endereco}
+              onChange={(e) => setEndereco(e.target.value)}
             />
           </div>
           <div>
@@ -145,6 +166,8 @@ const TransportForm = () => {
               type="text"
               className="w-full p-2 border border-gray-300 rounded-md"
               required
+              value={enderecoDistino}
+              onChange={(e) => setEnderecoDistino(e.target.value)}
             />
           </div>
           <div>
@@ -181,6 +204,8 @@ const TransportForm = () => {
             <input
               type="time"
               className="w-full p-2 border border-gray-300 rounded-md"
+              value={horarioRetorn}
+              onChange={(e) => setHorarioRetorn(e.target.value)}
             />
           </div>
 
@@ -196,6 +221,8 @@ const TransportForm = () => {
             <textarea
               className="w-full p-2 border border-gray-300 rounded-md"
               rows="3"
+              value={text}
+              onChange={(e) => setText(e.target.value)}
             ></textarea>
           </div>
 
@@ -290,7 +317,13 @@ const TransportForm = () => {
           </div>
           <div className="mt-4">
             <label className="flex items-center">
-              <input type="checkbox" className="mr-2" required />
+              <input
+                type="checkbox"
+                className="mr-2"
+                required
+                value={check}
+                onchange={(e) => setCheck(e.target.value)}
+              />
               <span className="text-sm">
                 Li e concordo com os termos e condições de uso do serviço de
                 transporte para idosos..
