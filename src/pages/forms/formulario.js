@@ -1,4 +1,6 @@
-import { set } from "mongoose";
+import { db } from "../../services/firebaseConection"; // Importe a instância do Firestore
+import { collection, addDoc } from "firebase/firestore";
+
 import React, { use } from "react";
 import { useState } from "react";
 
@@ -19,25 +21,35 @@ const TransportForm = () => {
   const [text, setText] = useState("");
   const [check, setCheck] = useState("");
 
-  //criando a funçao
-  const handleFormSubmit = (event) => {
+  //criando a funçao assicronas
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(
-      nome,
-      data,
-      retornoSelecinado,
-      resNome,
-      contato,
-      email,
-      datatransp,
-      horario,
-      endereco,
-      enderecoDistino,
-      retornoSelecinado,
-      horarioRetorn,
-      text,
-      check
-    );
+
+    try {
+      const docRef = await addDoc(collection(db, "forms"), {
+        nome: nome,
+        data: data,
+        resNome: resNome,
+        contato: contato,
+        email: email,
+        datatransp: datatransp,
+        horario: horario,
+        endereco: endereco,
+        enderecoDistino: enderecoDistino,
+        retornoSelecinado: retornoSelecinado,
+        horarioRetorn: horarioRetorn,
+        text: text,
+        check: check,
+      });
+      console.log("Document written with ID: ", docRef.id);
+      alert("Solicitação de transporte enviada com sucesso!");
+      // ... (limpar o formulário)
+    } catch (error) {
+      console.error("Error adding document: ", error);
+      alert(
+        "Ocorreu um erro ao enviar a solicitação. Por favor, tente novamente."
+      );
+    }
   };
 
   return (
@@ -322,7 +334,7 @@ const TransportForm = () => {
                 className="mr-2"
                 required
                 value={check}
-                onchange={(e) => setCheck(e.target.value)}
+                onChange={(e) => setCheck(e.target.value)}
               />
               <span className="text-sm">
                 Li e concordo com os termos e condições de uso do serviço de
