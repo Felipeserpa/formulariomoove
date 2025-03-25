@@ -16,14 +16,14 @@ export default function AdminLogin() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-900">
       <div className="bg-gray-800 p-8 rounded shadow-md w-full max-w-md">
-        <div className="flex justify-center mb-6">
+        <div className="flex justify-center mb-4 ">
           <Image
-            src="/moove.jpg"
+            src="/mooves.jpg"
             alt="Moove Logo"
-            width={150}
+            width={250}
             height={100}
             priority
-            className="object-cover rounded-lg"
+            className="object-cover  rounded-full"
           />
         </div>
 
