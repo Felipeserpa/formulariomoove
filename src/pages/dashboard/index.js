@@ -11,7 +11,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../../services/firebaseConection";
 import { AuthContext } from "../../context/authContext";
-import { toast } from "react-toastify";
+//import { toast } from "react-toastify";
 
 const Dashboard = () => {
   const { user, loading, isAdmin } = useContext(AuthContext);
@@ -22,18 +22,14 @@ const Dashboard = () => {
   useEffect(() => {
     if (!loading) {
       if (!user) {
-        router.push("/dashboard/login"); // Redireciona se não estiver logado
+        router.push("/dashboard/login");
       } else if (!isAdmin) {
-        router.push("/formulario"); // Redireciona não-admins para outra página
+        router.push("/formulario");
       }
     }
   }, [user, isAdmin, loading, router]);
 
-  if (!user || (!isAdmin && !loading)) {
-    return <div>Redirecionando...</div>;
-  }
-
-  // Função para carregar agendamentos
+  // Carregar agenda inicial quando o usuário estiver pronto
   useEffect(() => {
     if (user && isAdmin) {
       loadAgenda();
@@ -101,6 +97,10 @@ const Dashboard = () => {
       toast.error("Erro ao mover dados.");
     }
   };
+
+  if (loading) {
+    return <div>Carregando...</div>;
+  }
 
   return (
     <div className="grid grid-cols-[15%_85%] h-screen">
