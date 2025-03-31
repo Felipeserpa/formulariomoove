@@ -1,31 +1,55 @@
-import { useState } from "react";
-
-import React from "react";
-
-import Image from "next/image";
+import { useState, useEffect, useContext } from "react";
+import { useRouter } from "next/router";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../services/firebaseConection";
+import { AuthContext } from "../../context/authContext";
 
 export default function AdminLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
+  const { user, isAdmin } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (!loading && user && isAdmin) {
+      router.push("/dashboard");
+    }
+  }, [user, isAdmin, router, loading]);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.error("Erro ao fazer login:", error);
+    setLoading(true);
+
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
+      const isAdmin = user.email === "moove@gmail.com";
+
+      if (isAdmin) {
+        router.push("/dashboard");
+      } else {
+        router.push("/formulario");
+      }
+    } catch (error) {
+      console.error("Erro ao fazer login:", error);
+    } finally {
+      setLoading(false);
+    }
   };
+
+  if (loading) {
+    return <div>Carregando...</div>;
+  }
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-900">
       <div className="bg-gray-800 p-8 rounded shadow-md w-full max-w-md">
-        <div className="flex justify-center mb-4 ">
-          <Image
-            src="/mooves.jpg"
-            alt="Moove Logo"
-            width={250}
-            height={100}
-            priority
-            className="object-cover  rounded-full"
-          />
-        </div>
+        <div className="flex justify-center mb-4 "></div>
 
         <form onSubmit={handleFormSubmit} className="space-y-4">
           <div>

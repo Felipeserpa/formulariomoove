@@ -15,18 +15,37 @@ import {
 //import { FcApproval } from "react-icons/fc";
 import { db } from "../../services/firebaseConection";
 import React from "react";
-
+import { useRouter } from "next/router";
+import { AuthContext } from "../../context/authContext";
+import { useContext } from "react";
 const Dashboard = () => {
   // const [users, setUsers] = useState<User[]>([]);
+  const { user, loading, isAdmin } = useContext(AuthContext);
+  const router =
+    useRouter();
 
-  // Função para ordenar os dados
-  /*const sortUsersByDateAndTime = (usersArray: any[]) => {
+    // Função para ordenar os dados
+    /*const sortUsersByDateAndTime = (usersArray: any[]) => {
     return usersArray.sort((a, b) => {
       const dateComparison = a.date.localeCompare(b.date);
       if (dateComparison !== 0) return dateComparison;
       return a.time.localeCompare(b.time);
     });
   };*/
+
+  useEffect(() => {
+    if (!user && !loading) {
+      router.push("/dashboard/login");
+    }
+  }, [user, loading, router]);
+
+  if (loading) {
+    return <div>Carregando...</div>;
+  }
+
+  if (!user) {
+    return null; // A página não renderiza até que o usuário esteja autenticado
+  }
 
   // Carregar agenda inicial
   useEffect(() => {
