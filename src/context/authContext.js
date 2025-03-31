@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
       console.log("Carregando:", loading);
     });
     return () => unsubscribe();
-  }, []);
+  }, [loading]);
 
   const isAdmin = user?.email === "moove@gmail.com";
 
