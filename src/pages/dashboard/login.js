@@ -12,6 +12,7 @@ export default function AdminLogin() {
   const { user, isAdmin } = useContext(AuthContext);
 
   useEffect(() => {
+    console.log("Verificando autenticação: ", { user, isAdmin, loading });
     if (!loading && user && isAdmin) {
       router.push("/dashboard");
     }
@@ -35,8 +36,8 @@ export default function AdminLogin() {
       } else {
         router.push("/formulario");
       }
-    } catch (error) {
-      console.error("Erro ao fazer login:", error);
+    } catch (err) {
+      console.error("Erro ao fazer login:", err);
     } finally {
       setLoading(false);
     }
