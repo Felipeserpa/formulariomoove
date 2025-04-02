@@ -166,10 +166,7 @@ const Dashboard = () => {
               <span class="info-label">Observações:</span>
               <span>${agendamento.necessidadesEspeciais}</span>
             </div>
-            <div class="info-row">
-              <span class="info-label">Utiliza cadeira de rodas:</span>
-              <span>${agendamento.cadeiraRodas ? "Sim" : "Não"}</span>
-            </div>
+         
           </div>
           
           <div class="footer">
@@ -288,22 +285,24 @@ const Dashboard = () => {
               >
                 <div>
                   <p className="font-semibold text-gray-700">Contato:</p>
-                  <p>{user.contato}</p>
-                  {cardSize !== "small" && <p>{user.email}</p>}
+                  <p className=" text-gray-700">{user.contato}</p>
+                  {cardSize !== "small" && (
+                    <p className=" text-gray-700">{user.email}</p>
+                  )}
                 </div>
 
                 <div>
                   <p className="font-semibold text-gray-700">Transporte:</p>
-                  <p>
+                  <p className=" text-gray-700">
                     {user.dataTransporte} às {user.horario}
                   </p>
                   {cardSize !== "small" && (
                     <>
-                      <p className="truncate">
+                      <p className="truncatec text-gray-700">
                         <span className="text-gray-600">De:</span>{" "}
                         {user.enderecoOrigem}
                       </p>
-                      <p className="truncate">
+                      <p className="truncate  text-gray-700">
                         <span className="text-gray-600">Para:</span>{" "}
                         {user.enderecoDestino}
                       </p>
@@ -314,7 +313,7 @@ const Dashboard = () => {
                 {cardSize !== "small" && (
                   <div>
                     <p className="font-semibold text-gray-700">Retorno:</p>
-                    <p>
+                    <p className=" text-gray-700">
                       {user.retornoIncluso
                         ? `Sim (${user.horarioRetorno})`
                         : "Não"}
@@ -325,15 +324,16 @@ const Dashboard = () => {
                 {cardSize === "large" && (
                   <div>
                     <p className="font-semibold text-gray-700">Necessidades:</p>
-                    <p>{user.necessidadesEspeciais}</p>
-                    <p>Cadeira de rodas: {user.cadeiraRodas ? "Sim" : "Não"}</p>
+                    <p className=" text-gray-700">
+                      {user.necessidadesEspeciais}
+                    </p>
                   </div>
                 )}
 
                 <div className="flex justify-end gap-2 pt-2">
                   <button
                     onClick={() => printAgendamento(user)}
-                    className="bg-green-500 hover:bg-green-600 text-white px-4 py-1 rounded text-xs"
+                    className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded text-xs"
                     title="Imprimir"
                   >
                     🖨️
