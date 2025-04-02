@@ -166,7 +166,7 @@ const Dashboard = () => {
               <span class="info-label">Observações:</span>
               <span>${agendamento.necessidadesEspeciais}</span>
             </div>
-         
+          
           </div>
           
           <div class="footer">
@@ -193,13 +193,12 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="grid grid-cols-[250px_1fr] h-screen">
+    <div className="min-h-screen flex flex-col md:grid md:grid-cols-[250px_1fr]">
       {/* Sidebar */}
-      <div className="bg-gray-800 p-4 flex flex-col">
+      <aside className="bg-gray-800 p-4 flex flex-col">
         <h2 className="text-white text-xl font-bold pt-4 pb-6 border-b border-gray-700">
           Painel de Controle
         </h2>
-
         <button
           onClick={loadAgenda}
           className="mt-6 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
@@ -219,10 +218,10 @@ const Dashboard = () => {
             <option value="large">Grande</option>
           </select>
         </div>
-      </div>
+      </aside>
 
       {/* Área principal */}
-      <div className="bg-gray-100 p-6 overflow-auto">
+      <main className="bg-gray-100 p-6 overflow-auto">
         <h1 className="text-2xl font-bold text-gray-800 mb-6">
           Lista de Agendamentos Moove+
         </h1>
@@ -350,7 +349,7 @@ const Dashboard = () => {
             </div>
           ))}
         </div>
-      </div>
+      </main>
     </div>
   );
 };

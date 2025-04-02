@@ -53,8 +53,8 @@ const TransportForm = () => {
   };
 
   return (
-    <div className="bg-black-100 p-6">
-      <div className="max-w-2xl mx-auto bg-black p-8 rounded-lg shadow-md">
+    <div className="bg-gray-800 p-6 ">
+      <div className="max-w-2xl mx-auto bg-gray-800 rounded-lg shadow-md">
         <h1 className="text-2xl font-bold mb-6">
           Formulário de Solicitação de Transporte – MOOVE+
         </h1>
@@ -242,7 +242,7 @@ const TransportForm = () => {
           <h2 className="text-xl font-semibold mt-8 mb-4">
             Política de Prestação de Serviço
           </h2>
-          <div className="bg-black p-4 rounded-lg overflow-y-auto max-h-64">
+          <div className="bg-gray-800 p-4 rounded-lg overflow-y-auto max-h-64">
             <p className="text-sm">
               1. Objeto
               <br />
