@@ -13,7 +13,7 @@ import { db } from "../../services/firebaseConection";
 import { AuthContext } from "../../context/authContext";
 
 const Dashboard = () => {
-  const { user, loading, isAdmin } = useContext(AuthContext);
+  const { user, loading, isAdmin, logout } = useContext(AuthContext);
   const router = useRouter();
   const [users, setUsers] = useState([]);
   const [cardSize, setCardSize] = useState("medium");
@@ -196,6 +196,13 @@ const Dashboard = () => {
     <div className="min-h-screen flex flex-col md:grid md:grid-cols-[250px_1fr]">
       {/* Sidebar */}
       <aside className="bg-gray-800 p-4 flex flex-col">
+        <button
+          onClick={logout} // Adicione o botão de logout
+          className="mt-6 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+        >
+          Logout
+        </button>
+
         <h2 className="text-white text-xl font-bold pt-4 pb-6 border-b border-gray-700">
           Painel de Controle
         </h2>
